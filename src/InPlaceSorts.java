@@ -13,24 +13,21 @@ public class InPlaceSorts
 
     }
 
-    public void selectionSort(int[] arr)
+    public static void selectionSort(int[] arr)
     {
-        int temp;
-        for(int i = 0; i < arr.length-1; i++)
+        for(int i = 0; i < arr.length; i++)
         {
-            for(int j = 0; j < arr.length-1; j++)
+            for(int j = 0; j < arr.length; j++)
             {
-                if(arr[i] > arr[j])
+                if(arr[j] > arr[i])
                 {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+                    swap(arr, j, i);
                 }
             }
         }
     }
 
-    public int[] randIntArr(int count)
+    public static int[] randIntArr(int count)
     {
         int[] arr = new int[count];
         for(int i = 0; i < count; i++)
@@ -38,5 +35,16 @@ public class InPlaceSorts
             arr[i] = (int)(Math.random()*10000);
         }
         return arr;
+    }
+
+    public static void printArr(int[] arr)
+    {
+        String array = "";
+        for(int i = 0; i < arr.length-1; i++)
+        {
+            array = array + arr[i] + ", ";
+        }
+        array += arr[arr.length-1];
+        System.out.println(array);
     }
 }
