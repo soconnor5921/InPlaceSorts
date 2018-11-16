@@ -10,11 +10,6 @@ public class InPlaceSorts
 
     public void bubbleSort(int[] arr)
     {
-
-    }
-
-    public static void selectionSort(int[] arr)
-    {
         for(int i = 0; i < arr.length; i++)
         {
             for(int j = 0; j < arr.length; j++)
@@ -27,12 +22,41 @@ public class InPlaceSorts
         }
     }
 
+    public static void selectionSort(int[] arr)
+    {
+        int pos, min;
+        for(int i = 0; i < arr.length-1; i++)
+        {
+            pos = i;
+            min = arr[i];
+            for(int j = i+1; j < arr.length; j++)
+            {
+                if(arr[j] < min)
+                {
+                    pos = j;
+                    min = arr[j];
+                    swap(arr, i, pos);
+                }
+            }
+        }
+    }
+
     public static int[] randIntArr(int count)
     {
         int[] arr = new int[count];
         for(int i = 0; i < count; i++)
         {
             arr[i] = (int)(Math.random()*10000);
+        }
+        return arr;
+    }
+
+    public static double[] randDoubleArr(int count)
+    {
+        double[] arr = new double[count];
+        for(int i = 0; i < count; i++)
+        {
+            arr[i] = Math.random()*10000;
         }
         return arr;
     }
