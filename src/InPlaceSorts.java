@@ -71,4 +71,31 @@ public class InPlaceSorts
         array += arr[arr.length-1];
         System.out.println(array);
     }
+
+    public static int partition(int[] arr, int left, int right)
+    {
+        int pivot = arr[right];
+        int i = left-1;
+        int temp;
+        for(int j = left; j < right; j++)
+        {
+            if(arr[j] <= pivot)
+            {
+                i++;
+                temp = i; i = j; j = temp;
+            }
+        }
+        temp = arr[i+1]; arr[i+1] = arr[right]; arr[right] = temp;
+        return i+1;
+    }
+
+    public static void quickSort(int[] arr, int left, int right)
+    {
+        if(left < right)
+        {
+            int pivot = partition(arr, left, right);
+            quickSort(arr, left, pivot -1);
+            quickSort(arr, pivot + 1, right);
+        }
+    }
 }
