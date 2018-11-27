@@ -7,7 +7,9 @@ public class Runner
         double[] doubleArr = InPlaceSorts.randDoubleArr(20);
 
         InPlaceSorts.printArr(array);
-        InPlaceSorts.selectionSort(array);
+        InPlaceSorts.quickSort(array, 4, 10);
         InPlaceSorts.printArr(array);
+
+
     }
 }
